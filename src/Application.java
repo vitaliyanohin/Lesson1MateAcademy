@@ -1,4 +1,4 @@
-public class Main {
+public class Application {
 
   public static void main(String[] args) {
     test();
@@ -9,21 +9,19 @@ public class Main {
   }
 
   private static boolean doubleExpression(double a, double b, double c) {
-
     return Math.abs((a + b) - c) < 1e-4;
   }
 
   private static int leapYear(int year) {
-
     return year / 4 - year / 100 + year / 400;
   }
 
   private static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
     boolean f = false;
+    boolean t = true;
+    return ((a && b && c && d) ? f : (a && b && !c && !d) ? t : (a && !b && c && !d) ? t : (a && !b && !c && d) ? t :
 
-    return ((a && b && c && d) ? f : (a && b && !c && !d) ? a : (a && !b && c && !d) ? a : (a && !b && !c && d) ? a :
-
-            (!a && b && c && !d) ? b : (!a && b && !c && d) ? b : (!a && !b && c && d) ? c : f);
+            (!a && b && c && !d) ? t : (!a && b && !c && d) ? t : (!a && !b && c && d) ? t : f);
   }
 
   private static void test() {
@@ -53,7 +51,6 @@ public class Main {
     System.out.println();
     System.out.println(booleanExpression(false, false, false, true));
     System.out.println(booleanExpression(true, false, false, false));
-
   }
-
 }
+
