@@ -1,5 +1,7 @@
 public class Application {
+
 final static double MATH_ACCURACY = 1e-4;
+
 public static void main(String[] args) {
     test();
   }
