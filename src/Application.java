@@ -1,6 +1,6 @@
 public class Application {
-
-  public static void main(String[] args) {
+final static double MATH_ACCURACY = 1e-4;
+public static void main(String[] args) {
     test();
   }
 
@@ -9,7 +9,7 @@ public class Application {
   }
 
   private static boolean doubleExpression(double a, double b, double c) {
-    return Math.abs((a + b) - c) < 1e-4;
+    return Math.abs((a + b) - c) < MATH_ACCURACY;
   }
 
   private static int leapYear(int year) {
@@ -17,13 +17,9 @@ public class Application {
   }
 
   private static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
-    boolean f = false;
-    boolean t = true;
-    return ((a && b && c && d) ? f : (a && b && !c && !d) ? t : (a && !b && c && !d) ? t : (a && !b && !c && d) ? t :
 
-            (!a && b && c && !d) ? t : (!a && b && !c && d) ? t : (!a && !b && c && d) ? t : f);
+    return ((a ^ b) & (c ^ d)) || ((a ^ c) & (b ^ d));
   }
-
   private static void test() {
     System.out.println("Test flipBit");
     System.out.println(flipBit(8, 3));
